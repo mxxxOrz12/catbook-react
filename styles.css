@@ -11,6 +11,8 @@
   color: var(--white);
   font-size: 20px;
   background-color: #396dff;
+  margin: 0;
+  padding: 8px 16px 8px 16px;
 }
 
 body {
