@@ -28,3 +28,17 @@ body {
   background-color: red;
   border: 0.25vmin solid gray;
 }
+#reset {
+  position: absolute;
+  top: 650px;
+  right: 100px;
+  padding: 20px;
+}
+.scoreShow {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  border: 1px solid red;
+  font-size: 24px;
+  padding: 10px 20px 10px 10px;
+}

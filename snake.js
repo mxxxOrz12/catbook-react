@@ -1,4 +1,4 @@
-const snakeBody = [
+let snakeBody = [
   { x: 11, y: 11 },
   { x: 11, y: 10 },
   { x: 11, y: 9 },
@@ -22,10 +22,10 @@ const updateSnake = () => {
 const drawSnake = (gameBoard) => {
   for (let i = 0; i < snakeBody.length; i++) {
     const segment = snakeBody[i];
-    const snakeElement = document.createElement('div');
+    const snakeElement = document.createElement("div");
     snakeElement.style.gridRowStart = segment.y;
     snakeElement.style.gridColumnStart = segment.x;
-    snakeElement.classList.add('snake');
+    snakeElement.classList.add("snake");
     gameBoard.appendChild(snakeElement);
   }
 };
