@@ -31,11 +31,12 @@ const checkGameOver = () => {
   return snakeOutOfBounds() || snakeIntersectSelf();
 };
 
-const restart = () => {
-  document.getElementById("rest").addEventListener("click", () => {
+const restart = document
+  .getElementById("reset")
+  .addEventListener("click", () => {
     resetGame();
   });
-};
+
 const resetGame = () => {
   // Make sure the game loop is not still running
   clearInterval(gameLoop);

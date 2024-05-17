@@ -31,4 +31,7 @@ body {
 #reset {
   padding: 20px;
   border: 1px solid;
+  position: absolute;
+  top: 500px;
+  right: 100px;
 }
