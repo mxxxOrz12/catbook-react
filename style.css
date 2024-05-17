@@ -28,3 +28,7 @@ body {
   background-color: red;
   border: 0.25vmin solid gray;
 }
+#reset {
+  padding: 20px;
+  border: 1px solid;
+}
