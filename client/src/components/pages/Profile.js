@@ -8,7 +8,7 @@ const Profile = () => {
       <div className="Profile-avatarContainer">
         <div className="Profile-avatar" />
       </div>
-      <h1 className="Profile-name u-textCenter">YOUR NAME HERE</h1>
+      <h1 className="Profile-name u-textCenter">Ma Xiao</h1>
       <hr className="Profile-line" />
       <div className="u-flex">
         <div className="Profile-subContainer u-textCenter">

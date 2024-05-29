@@ -5,3 +5,29 @@
  * .<old style> --> .<Component>-<style-name>
  * 
  */
+.NavBar-container {
+  display: flex;
+  background-color: var(--primary);
+  padding: 10px;
+  justify-content: space-between;
+}
+.NavBar-title {
+  color: var(--grey);
+  font-size: 20px;
+  padding: 10px;
+  font-weight: 600;
+}
+.NavBar-right {
+  display: flex;
+  margin-right: 50px;
+}
+.NavBar-item {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 550;
+  padding: 10px 20px 0 20px;
+}
+.NavBar-item:hover {
+  color: #6987db;
+  font-weight: 600;
+}
