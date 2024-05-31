@@ -30,4 +30,5 @@
 
 .Card-commentBody {
   margin: 0 0 var(--s);
+  padding: 10px 20px 10px 20px;
 }

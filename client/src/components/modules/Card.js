@@ -6,6 +6,7 @@ import { NewComment } from "./NewPostInput";
 // TODO (step9): import CommentsBlock
 
 import "./Card.css";
+import CommentsBlock from "./CommentsBlock.js";
 
 /**
  * Card is a component for displaying content like stories
@@ -18,37 +19,22 @@ import "./Card.css";
 const Card = (props) => {
   const [comments, setComments] = useState([]);
 
+  const addNewComment = (comment) => {
+    setComments([...comments, comment]);
+  };
+
   useEffect(() => {
     get("/api/comment", { parent: props._id }).then((commentItems) => {
       setComments(commentItems);
     });
   }, []);
 
-  let commentsList = null;
-    const hasComments = comments.length !== 0;
-    if (hasComments) {
-      commentsList = comments.map((commentObj) => (
-        <SingleComment
-          _id={commentObj._id}
-          creator_name={commentObj.creator_name}
-          content={commentObj.content}
-        />
-      ));
-    } else {
-      commentsList = <div>No comments!</div>;
-    }
-
   return (
     <div className="Card-container">
-        <SingleStory
-          _id={props._id}
-          creator_name={props.creator_name}
-          content={props.content}
-        />
-        {commentsList}
-        <NewComment storyId={props._id} />
-      </div>
-  )
+      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
+      <CommentsBlock comments={comments} storyId={props._id} addNewComment={addNewComment} />
+    </div>
+  );
   // TODO (step9): use CommentsBlock
 };
 

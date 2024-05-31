@@ -50,10 +50,12 @@ const NewPostInput = (props) => {
 /**
  * New Story is a New Post component for stories
  */
-const NewStory = () => {
+const NewStory = (props) => {
   const addStory = (value) => {
     const body = { content: value };
-    post("/api/story", body);
+    post("/api/story", body).then((stroyObj) => {
+      props.addNewStory(stroyObj);
+    });
   };
 
   return <NewPostInput defaultText="New Story" onSubmit={addStory} />;
@@ -68,7 +70,9 @@ const NewStory = () => {
 const NewComment = (props) => {
   const addComment = (value) => {
     const body = { parent: props.storyId, content: value };
-    post("/api/comment", body);
+    post("/api/comment", body).then((comment) => {
+      props.addNewComment(comment);
+    });
   };
 
   return <NewPostInput defaultText="New Comment" onSubmit={addComment} />;

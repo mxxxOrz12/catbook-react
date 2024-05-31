@@ -6,6 +6,10 @@ import { NewStory } from "../modules/NewPostInput.js";
 const Feed = () => {
   const [stories, setStories] = useState([]);
 
+  const addNewStory = (stroyObj) => {
+    setStories([...stories, stroyObj]);
+  };
+
   useEffect(() => {
     get("/api/stories").then((storyObjs) => {
       setStories(storyObjs);
@@ -17,14 +21,14 @@ const Feed = () => {
   if (hasStories) {
     storiesList = stories.map((storyObj) => (
       <Card _id={storyObj._id} creator_name={storyObj.creator_name} content={storyObj.content} />
-      ));
+    ));
   } else {
     storiesList = <div>No stories!</div>;
   }
 
   return (
     <div>
-      <NewStory />
+      <NewStory addNewStory={addNewStory} />
       {storiesList}
     </div>
   );

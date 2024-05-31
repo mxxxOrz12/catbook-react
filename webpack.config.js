@@ -67,7 +67,10 @@ module.exports = {
     static: "./client/dist",
     hot: true,
     proxy: {
-      "/api": "http://localhost:3000",
+      "/api": {
+        target: "http://catbook-workshop3.herokuapp.com",
+        changeOrigin: true,
+      },
     },
   },
 };
