@@ -14,7 +14,7 @@ const router = express.Router();
 // we haven't set up user login yet, so just
 // use a hardcoded name for now
 // TODO (step2) change to a unique name for workshop
-const myName = "Anonymous";
+const myName = "Ma Xiao";
 
 const data = {
   stories: [
@@ -24,10 +24,10 @@ const data = {
       content: "Send it or blend it?",
     },
     {
-      _id: 1, 
+      _id: 1,
       creator_name: "Andrew Liu",
       content: "web.labing with Tony <3",
-    }
+    },
   ],
   comments: [
     {
@@ -54,12 +54,34 @@ router.get("/comment", (req, res) => {
 });
 
 // TODO-2 (step2) Add post story endpoint
+router.post("/story", (req, res) => {
+  const newStory = {
+    _id: data.stories.length,
+    creator_name: myName,
+    content: req.body.content,
+  };
 
+  data.stories.push(newStory);
+  res.send(newStory);
+});
 
 // TODO-3 (step2) Add post comment endpoint
+router.post("/comment", (req, res) => {
+  const newComment = {
+    _id: data.comments.length,
+    creator_name: myName,
+    parent: req.body.parent,
+    content: req.body.content,
+  };
+  data.comments.push(newComment);
 
+  res.send(newComment);
+});
 
 // TODO-1 (step2) Add catch-all endpoint for /api
-
+router.all("*", (req, res) => {
+  console.log(`API Route not found: ${req.method} ${req.url}`);
+  res.status(404).send({ message: "API Route not found" });
+});
 
 module.exports = router;

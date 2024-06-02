@@ -11,10 +11,17 @@ const Feed = () => {
   // when it shows up on screen
   useEffect(() => {
     document.title = "News Feed";
-    get("/api/stories").then((storyObjs) => {
-      let reversedStoryObjs = storyObjs.reverse();
-      setStories(reversedStoryObjs);
-    });
+    const getStories = async () => {
+      const storyObjects = await get("/api/stories");
+      const reversedStoryObjects = storyObjects.reverse();
+      setStories(reversedStoryObjects);
+    };
+    getStories();
+
+    // get("/api/stories").then((storyObjs) => {
+    //   let reversedStoryObjs = storyObjs.reverse();
+    //   setStories(reversedStoryObjs);
+    // });
   }, []);
 
   // this gets called when the user pushes "Submit", so their
