@@ -20,17 +20,18 @@ validator.checkSetup();
 
 // import libraries needed for the webserver to work!
 const express = require("express"); // backend framework for our node server.
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 const path = require("path"); // provide utilities for working with file and directory paths
 
 const api = require("./api.js");
 // Server configuration below
 // TODO (step-1): change connection URL after setting up your own database
-const mongoConnectionURL = "";
+const mongoConnectionURL =
+  "mongodb+srv://402674230ma:maxiao666%40@cluster0.ob7ex29.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // TODO (for your own websites): change database name to the name you chose
-const databaseName = "catbook";
-const options = { useNewUrlParser: true, useUnifiedTopology: true, dbName: databaseName}
+const databaseName = "Blog";
+const options = { useNewUrlParser: true, useUnifiedTopology: true, dbName: databaseName };
 
 // connect to mongodb
 mongoose
